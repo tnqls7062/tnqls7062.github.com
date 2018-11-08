@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body>
+<ul id="form-part">
+    <li>
+        0 -> 1 <input class="input-text" type="number">
+    </li>
+    <li>
+        1 -> 2 <input class="input-text" type="number">
+    </li>
+    <li>
+        2 -> 3 <input class="input-text" type="number">
+    </li>
+    <li>
+        3 -> 4 <input class="input-text" type="number">
+    </li>
+    <li>
+        4 -> 5 <input class="input-text" type="number">
+    </li>
+    <li>
+        <button id="btnExcute">실행</button>
+    </li>
+</ul>
+<div id="visual-part" style="display: none;">
+    <h1>0</h1>
+</div>
+<script>
+    let time = 0;
+
+    $('#btnExcute').click(() => {
+      $('#form-part').hide();
+      $('#visual-part').show();
+
+      $('.input-text').each(function (index) {
+        time += (this.value * 1000)
+
+        setTimeout(() => {
+          $('#visual-part h1').text(index + 1)
+        }, time)
+      })
+    })
+</script>
+</body>
+</html>
